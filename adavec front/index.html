@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Unidades</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid mt-3">
+        <!-- Header -->
+        <div class="row align-items-center mb-3">
+            <div class="col-md-6">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link text-dark p-0 me-2">
+                        <i class="bi bi-arrow-left-circle-fill fs-4" style="color: #0f1c2e;"></i>
+                    </button>
+                    <h5 class="mb-0 fw-bold">Gestión de unidades</h5>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" value="087635">
+                    <button class="btn btn-search">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información de Unidad -->
+        <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <span>Información de Unidad</span>
+                <span class="serie-badge">serie:087635</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Modelo</label>
+                            <input type="text" id="modeloInput" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">DFS Fecha Fondeo</label>
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="fondeo" id="fondeoSi" checked>
+                                    <label class="form-check-label" for="fondeoSi">SI</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="fondeo" id="fondeoNo">
+                                    <label class="form-check-label" for="fondeoNo">NO</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="27/02/2025">
+                                <button class="btn btn-outline-secondary">
+                                    <i class="bi bi-calendar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Financiera pago</label>
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="financiera" id="financieraSi"
+                                        checked>
+                                    <label class="form-check-label" for="financieraSi">SI</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="financiera" id="financieraNo">
+                                    <label class="form-check-label" for="financieraNo">NO</label>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Placas</label>
+                            <input type="text" id="placasInput" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Unidad</label>
+                            <input type="text" id="tipoUnidadInput" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Año</label>
+                            <input type="number" id="anioInput" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Comentarios -->
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header bg-white">
+                        <span>Comentarios</span>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="comentariosInput" class="form-control h-100"
+                            placeholder="Ingrese sus comentarios ..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reportado A -->
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header bg-white">
+                        <span>Reportado A</span>
+                    </div>
+                    <div class="card-body">
+                        <input id="reportadoAInput" type="text" class="form-control" placeholder="Ingrese nombre...">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+
+
+            <!-- Botón fuera de la tarjeta -->
+            <div class="card mt-3">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <span class="fw-semibold">Registro de Cobros</span>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Agregar Cobro
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <!-- Activador del modal de tarifa única -->
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#modalTarifaUnica">
+                                    Tarifa Única (base: $22,900)
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Pensión</a></li>
+                            <li><a class="dropdown-item" href="#">Seguro</a></li>
+                            <li><a class="dropdown-item" href="#">Siniestro</a></li>
+                            <li><a class="dropdown-item" href="#">Reparación</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover align-middle text-center mb-0 bg-white">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Cobros</th>
+                                        <th>Costo</th>
+                                        <th>Fecha</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-cobros-body">
+                                    <tr>
+                                        <td>
+                                            <span class="badge bg-primary">TARIFA ÚNICA</span>
+                                            <span class="badge bg-info text-dark">LODERAS</span>
+                                            <span class="badge bg-warning text-dark">SEGURO</span>
+                                        </td>
+                                        <td class="text-end">$464.00</td>
+                                        <td>28/02/2025</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary" title="Marcar"><i
+                                                    class="bi bi-bookmark"></i></button>
+                                            <button class="btn btn-sm btn-outline-dark" title="Ver"><i
+                                                    class="bi bi-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Tarifa Única -->
+            <div class="modal fade" id="modalTarifaUnica" tabindex="-1" aria-labelledby="modalTarifaUnicaLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="modalTarifaUnicaLabel">Registrar Traslado con Tarifa Única</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formTarifaUnica">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="origenSelect" class="form-label">Origen</label>
+                                        <select id="origenSelect" class="form-select" required>
+                                            <option value="">Seleccionar origen</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="destinoSelect" class="form-label">Destino</label>
+                                        <select id="destinoSelect" class="form-select" required>
+                                            <option value="">Seleccionar destino</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="fechaSalidaInput" class="form-label">Fecha de Salida</label>
+                                        <input type="date" class="form-control" id="fechaSalidaInput" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="fechaLlegadaInput" class="form-label">Fecha de Llegada</label>
+                                        <input type="date" class="form-control" id="fechaLlegadaInput" required>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="kilometrosInput" class="form-label">Kilómetros Recorridos</label>
+                                        <input type="number" class="form-control" id="kilometrosInput" required min="0">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="observacionesInput" class="form-label">Observaciones</label>
+                                        <input type="text" class="form-control" id="observacionesInput">
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="unidadIdInput"> <!-- se llena desde el JS al abrir modal -->
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" form="formTarifaUnica">Guardar
+                                Traslado</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Scripts -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="js/main.js"></script>
+</body>
+
+</html>
